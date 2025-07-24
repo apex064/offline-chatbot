@@ -1,0 +1,123 @@
+apex064@apex064:~/offline_chatbot$ python3 -m venv venv
+apex064@apex064:~/offline_chatbot$ source venv/bin/activate
+(venv) apex064@apex064:~/offline_chatbot$ pip install pandas scikit-learn
+Collecting pandas
+  Using cached pandas-2.3.1-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (91 kB)
+Collecting scikit-learn
+  Downloading scikit_learn-1.7.1-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (11 kB)
+Collecting numpy>=1.26.0 (from pandas)
+  Using cached numpy-2.3.1-cp313-cp313-manylinux_2_28_x86_64.whl.metadata (62 kB)
+Collecting python-dateutil>=2.8.2 (from pandas)
+  Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting pytz>=2020.1 (from pandas)
+  Using cached pytz-2025.2-py2.py3-none-any.whl.metadata (22 kB)
+Collecting tzdata>=2022.7 (from pandas)
+  Using cached tzdata-2025.2-py2.py3-none-any.whl.metadata (1.4 kB)
+Collecting scipy>=1.8.0 (from scikit-learn)
+  Downloading scipy-1.16.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (61 kB)
+Collecting joblib>=1.2.0 (from scikit-learn)
+  Downloading joblib-1.5.1-py3-none-any.whl.metadata (5.6 kB)
+Collecting threadpoolctl>=3.1.0 (from scikit-learn)
+  Downloading threadpoolctl-3.6.0-py3-none-any.whl.metadata (13 kB)
+Collecting six>=1.5 (from python-dateutil>=2.8.2->pandas)
+  Using cached six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Downloading pandas-2.3.1-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.1/12.1 MB 413.8 kB/s eta 0:00:00
+Downloading scikit_learn-1.7.1-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (9.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.4/9.4 MB 455.5 kB/s eta 0:00:00
+Downloading joblib-1.5.1-py3-none-any.whl (307 kB)
+Using cached numpy-2.3.1-cp313-cp313-manylinux_2_28_x86_64.whl (16.6 MB)
+Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Using cached pytz-2025.2-py2.py3-none-any.whl (509 kB)
+Downloading scipy-1.16.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (35.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.1/35.1 MB 1.2 MB/s eta 0:00:00
+Using cached six-1.17.0-py2.py3-none-any.whl (11 kB)
+Downloading threadpoolctl-3.6.0-py3-none-any.whl (18 kB)
+Downloading tzdata-2025.2-py2.py3-none-any.whl (347 kB)
+Installing collected packages: pytz, tzdata, threadpoolctl, six, numpy, joblib, scipy, python-dateutil, scikit-learn, pandas
+Successfully installed joblib-1.5.1 numpy-2.3.1 pandas-2.3.1 python-dateutil-2.9.0.post0 pytz-2025.2 scikit-learn-1.7.1 scipy-1.16.0 six-1.17.0 threadpoolctl-3.6.0 tzdata-2025.2
+(venv) apex064@apex064:~/offline_chatbot$ python chatbot.py
+==== OFFLINE CHATBOT ====
+Enter path to FAQ folder: sample_data/faqs
+Enter path to Sales CSV file: sample_data/sales.csv
+
+Type your query (type 'exit' to quit):
+
+You: What is your return policy?
+Bot: Q: What is your return policy?
+A: Our return policy allows 30-day returns with a receipt.
+You: Total sales for Widget B
+Bot: Total sales: 870
+You: ^CTraceback (most recent call last):
+  File "/home/apex064/offline_chatbot/chatbot.py", line 38, in <module>
+    main()
+    ~~~~^^
+  File "/home/apex064/offline_chatbot/chatbot.py", line 24, in main
+    query = input("You: ").strip().lower()
+            ~~~~~^^^^^^^^^
+KeyboardInterrupt
+
+(venv) apex064@apex064:~/offline_chatbot$ python chatbot.py
+==== OFFLINE CHATBOT ====
+Enter path to FAQ folder: sample_data/faqs
+Enter path to Sales CSV file: sample_data/sales.csv
+
+Type your query (type 'exit' to quit):
+
+You: What payment methods do you accept?
+
+Bot: Q: What payment methods do you accept?
+A: We accept credit cards, debit cards, PayPal, and bank transfers.
+You: Bot: Sorry, I couldn’t find a relevant FAQ answer.
+You: ^CTraceback (most recent call last):
+  File "/home/apex064/offline_chatbot/chatbot.py", line 38, in <module>
+    main()
+    ~~~~^^
+  File "/home/apex064/offline_chatbot/chatbot.py", line 24, in main
+    query = input("You: ").strip().lower()
+            ~~~~~^^^^^^^^^
+KeyboardInterrupt
+
+(venv) apex064@apex064:~/offline_chatbot$ git init
+git add .
+git commit -m "Initial commit: offline chatbot with FAQ and sales queries"
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint:
+hint: 	git config --global init.defaultBranch <name>
+hint:
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint:
+hint: 	git branch -m <name>
+Initialized empty Git repository in /home/apex064/offline_chatbot/.git/
+[master (root-commit) 19814a5] Initial commit: offline chatbot with FAQ and sales queries
+ 8 files changed, 140 insertions(+)
+ create mode 100644 README.md
+ create mode 100644 __pycache__/faq_handler.cpython-313.pyc
+ create mode 100644 __pycache__/sales_handler.cpython-313.pyc
+ create mode 100644 chatbot.py
+ create mode 100644 faq_handler.py
+ create mode 100644 sales_handler.py
+ create mode 100644 sample_data/faqs/faq1.txt
+ create mode 100644 sample_data/sales.csv
+(venv) apex064@apex064:~/offline_chatbot$ gh repo create offline-chatbot --public --source=. --remote=origin --push
+✓ Created repository apex064/offline-chatbot on GitHub
+  https://github.com/apex064/offline-chatbot
+✓ Added remote https://github.com/apex064/offline-chatbot.git
+Enumerating objects: 13, done.
+Counting objects: 100% (13/13), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (11/11), done.
+Writing objects: 100% (13/13), 6.18 KiB | 790.00 KiB/s, done.
+Total 13 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/apex064/offline-chatbot.git
+ * [new branch]      HEAD -> master
+branch 'master' set up to track 'origin/master'.
+✓ Pushed commits to https://github.com/apex064/offline-chatbot.git
+(venv) apex064@apex064:~/offline_chatbot$ gh repo view --web
+Opening github.com/apex064/offline-chatbot in your browser.
+(venv) apex064@apex064:~/offline_chatbot$ Opening in existing browser session.
+
+
